@@ -23,5 +23,12 @@ namespace FCOTravelAlerts.Service.Tests.Repository
             Assert.That(items.Count(),Is.EqualTo(20));
             Assert.That(items.First().DatePublished.Date, Is.EqualTo(new DateTime(2011,04,09).Date));
         }
+
+        [Test]
+        public void Can_hit_yahoo_pipes()
+        {
+            var items = new FCORepository(new XmlWebRequest()).Get();
+            items.ToList().ForEach(Console.WriteLine);
+        }
     }
 }

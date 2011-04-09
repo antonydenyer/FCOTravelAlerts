@@ -44,10 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Item.cs" />
+    <Compile Include="FCOWatcher.cs" />
+    <Compile Include="IFCONotifier.cs" />
     <Compile Include="Repository\FCORepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IXmlWebRequest.cs" />
+    <Compile Include="Repository\XmlRequest.cs" />
+    <Compile Include="Repository\XmlWebRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

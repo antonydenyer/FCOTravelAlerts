@@ -31,6 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FakeItEasy">
+      <HintPath>..\..\lib\FakeItEasy.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\lib\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.GridFS">
+      <HintPath>..\..\lib\MongoDB.GridFS.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Linq">
+      <HintPath>..\..\lib\MongoDB.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.core">
       <HintPath>..\..\lib\nunit.core.dll</HintPath>
     </Reference>
@@ -49,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FCOWatcherTests.cs" />
+    <Compile Include="MongoRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\FCORepositoryTests.cs" />
     <Compile Include="Repository\FeedData.cs" />
