@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="FCOWatcherTests.cs" />
     <Compile Include="MongoRepositoryTests.cs" />
+    <Compile Include="Notifier\SMTPNotifierTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\FCORepositoryTests.cs" />
     <Compile Include="Repository\FeedData.cs" />
@@ -72,6 +73,9 @@
       <Project>{6B8C03C6-573F-4DD2-8173-CBE41C1B0DB8}</Project>
       <Name>FCOTravelAlerts.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
