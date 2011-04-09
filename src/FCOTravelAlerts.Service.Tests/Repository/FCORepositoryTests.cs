@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -21,6 +23,7 @@ namespace FCOTravelAlerts.Service.Tests.Repository
             var items = fcoRepository.Get();
 
             Assert.That(items.Count(),Is.EqualTo(20));
+            Assert.That(items.First().DatePublished.Date, Is.EqualTo(new DateTime(2011,04,09).Date));
         }
     }
 
@@ -37,11 +40,13 @@ namespace FCOTravelAlerts.Service.Tests.Repository
 
         public IEnumerable<Item> Get()
         {
-            XDocument data = _webRequest.Get(FEED);
+            XmlDocument data = _webRequest.Get(FEED);
             var items = new List<Item>();
-            foreach (var item in data.Descendants("item"))
+            foreach (XmlNode item in data.SelectNodes("//item"))
             {
-                items.Add(new Item());
+                var title = item.SelectSingleNode("title").InnerText;
+                var datePublished = DateTime.Parse(item.SelectSingleNode("pubDate").InnerText);
+                items.Add(new Item(title,datePublished));
             }
 
             
@@ -51,10 +56,28 @@ namespace FCOTravelAlerts.Service.Tests.Repository
 
     public class Item
     {
+        private readonly string _title;
+        private readonly DateTime _datePublished;
+
+        public Item(string title, DateTime datePublished)
+        {
+            _title = title;
+            _datePublished = datePublished;
+        }
+
+        public DateTime DatePublished
+        {
+            get { return _datePublished; }
+        }
+
+        public string Title
+        {
+            get { return _title; }
+        }
     }
 
     public interface IXmlWebRequest
     {
-         XDocument Get(string uri);
+        XmlDocument Get(string uri);
     }
 }
