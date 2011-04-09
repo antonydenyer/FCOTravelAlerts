@@ -53,6 +53,12 @@
     <Compile Include="Repository\FCORepositoryTests.cs" />
     <Compile Include="Repository\FeedData.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FCOTravelAlerts.Service\FCOTravelAlerts.Service.csproj">
+      <Project>{6B8C03C6-573F-4DD2-8173-CBE41C1B0DB8}</Project>
+      <Name>FCOTravelAlerts.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
