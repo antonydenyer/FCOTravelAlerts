@@ -13,6 +13,7 @@ namespace FCOTravelAlerts.Service.Tests
         [Test]
         public void should_be_able_to_connect_to_the_FCO_twitter_feed()
         {
+
             Assert.That(feed,Is.StringContaining());
         }
     }
